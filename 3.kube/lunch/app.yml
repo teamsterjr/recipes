@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: lunch-service
+  labels:
+    app: lunch-service
+    version: v1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lunch-service
+      version: v1.0.0
+  template:
+    metadata:
+      labels:
+        app: lunch-service
+        version: v1.0.0
+    spec:
+      containers:
+      - name: lunch-service
+        image: lunch:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+          name: http

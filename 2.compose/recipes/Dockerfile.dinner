@@ -1,0 +1,13 @@
+FROM python:3.6.4-alpine AS file
+COPY dinner/dinner.json /recipe.json
+
+FROM python:3.6.4-alpine
+WORKDIR /app
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+ENV FLASK_APP=recipe.py
+ENV FLASK_ENV=production
+COPY src .
+COPY --from=file /recipe.json static/recipe.json
+ENTRYPOINT ["/usr/local/bin/flask"]
+CMD ["run", "--host", "0.0.0.0"]

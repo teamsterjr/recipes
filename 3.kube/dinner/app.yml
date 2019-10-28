@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dinner-service
+  labels:
+    app: dinner-service
+    version: v1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dinner-service
+      version: v1.0.0
+  template:
+    metadata:
+      labels:
+        app: dinner-service
+        version: v1.0.0
+    spec:
+      containers:
+      - name: dinner-service
+        image: dinner:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+          name: http

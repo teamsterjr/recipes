@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: breakfast-service
+  labels:
+    app: breakfast-service
+    version: v1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: breakfast-service
+      version: v1.0.0
+  template:
+    metadata:
+      labels:
+        app: breakfast-service
+        version: v1.0.0
+    spec:
+      containers:
+      - name: breakfast-service
+        image: breakfast:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+          name: http
