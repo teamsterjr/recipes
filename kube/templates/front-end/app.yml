@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end-service
+  labels:
+    app: front-end-service
+    version: v1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end-service
+      version: v1.0.0
+  template:
+    metadata:
+      labels:
+        app: front-end-service
+        version: v1.0.0
+    spec:
+      containers:
+      - name: front-end-service
+        image: front-end:0.0.1
+        imagePullPolicy: Never
+        envFrom:
+        - configMapRef:
+            name: front-end-config
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+          name: http

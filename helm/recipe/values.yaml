@@ -1,0 +1,19 @@
+
+image:
+  repository: recipe
+  pullPolicy: IfNotPresent
+  tag: "0.0.1"
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 5000
+
+podAnnotations: {}
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+securityContext: {}
+podSecurityContext: {}

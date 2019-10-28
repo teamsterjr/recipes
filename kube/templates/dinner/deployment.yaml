@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dinner-service
+  labels:
+    app: dinner-service
+    version: v1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dinner-service
+      version: v1.0.0
+  template:
+    metadata:
+      labels:
+        app: dinner-service
+        version: v1.0.0
+    spec:
+      containers:
+      - name: dinner-service
+        image: recipe:0.0.1
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: recipe-volume
+          mountPath: /app/static
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+          name: http
+      volumes:
+        - name: recipe-volume
+          configMap:
+            name: dinner-cm

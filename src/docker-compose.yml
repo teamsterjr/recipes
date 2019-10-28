@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  breakfast:
+    image: recipe:0.0.1
+    build: 
+      context: recipes
+      dockerfile: ../Dockerfile
+    volumes:
+    - "./recipes/recipes/breakfast/breakfast.json:/app/static/recipe.json"
+  lunch:
+    image: recipe:0.0.1
+    build: 
+      context: recipes
+      dockerfile: ../Dockerfile
+    volumes:
+    - "./recipes/recipes/lunch/lunch.json:/app/static/recipe.json"
+  dinner:
+    image: recipe:0.0.1
+    build: 
+      context: recipes
+      dockerfile: ../Dockerfile
+    volumes:
+    - "./recipes/recipes/dinner/dinner.json:/app/static/recipe.json"
+  front-end:
+    image: front-end:0.0.1
+    build:
+      context: front-end
+      dockerfile: ../Dockerfile
+    ports:
+    - "5000:5000"
+    environment:
+      - BREAKFAST_URL=http://breakfast:5000/recipe.json
+      - LUNCH_URL=http://lunch:5000/recipe.json
+      - DINNER_URL=http://dinner:5000/recipe.json

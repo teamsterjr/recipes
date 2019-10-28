@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lunch-service
+  labels:
+    app: lunch-service
+    version: v1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lunch-service
+      version: v1.0.0
+  template:
+    metadata:
+      labels:
+        app: lunch-service
+        version: v1.0.0
+    spec:
+      containers:
+      - name: lunch-service
+        image: recipe:0.0.1
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: recipe-volume
+          mountPath: /app/static
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+          name: http
+      volumes:
+        - name: recipe-volume
+          configMap:
+            name: lunch-cm

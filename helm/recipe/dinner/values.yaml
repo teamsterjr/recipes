@@ -1,0 +1,2 @@
+nameOverride: dinner
+recipe: dinner/dinner.json

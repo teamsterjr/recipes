@@ -1,0 +1,21 @@
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: dinner
+spec:
+  hosts:
+  - dinner
+  http:
+  - match:
+    - headers:
+        x-test-user:
+          exact: alex
+    route:
+    - destination:
+        host: dinner
+        subset: v2
+  - route:
+    - destination:
+        host: dinner
+        subset: v1

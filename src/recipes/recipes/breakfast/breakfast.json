@@ -1,0 +1,10 @@
+{
+  "name": "Pancakes",
+  "ingredients": [
+    { "item": "flour", "quantity": "110g" },
+    { "item": "egg", "quantity": "1" },
+    { "item": "milk", "quantity": "280 ml" },
+    { "item": "salt", "quantity": "a pinch" }
+  ],
+  "method": "Mix flour and salt into bowl, make indent and break egg into it.\nGradually beat in milk.\nRest for 10 minutes\nCook in medium temperature non stick frying pan"
+}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-service
+  labels:
+    specification-identifier: front-end-service
+spec:
+  selector:
+    app: front-end-service
+  ports:
+  - port: 5000
+    name: http
+  type: NodePort

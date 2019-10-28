@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: front-end-config
+data:
+  BREAKFAST_URL: http://breakfast-service:5000/recipe.json
+  LUNCH_URL: http://lunch-service:5000/recipe.json
+  DINNER_URL: http://dinner-service:5000/recipe.json
+

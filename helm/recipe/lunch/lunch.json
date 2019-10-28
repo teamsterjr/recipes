@@ -1,0 +1,8 @@
+{
+  "name": "Beans on Toast",
+  "ingredients": [
+    { "item": "Baked Beans", "quantity": "1 tin" },
+    { "item": "Bread", "quantity": "2 slices" }
+  ],
+  "method": "Toast bread, heat beans in pan / microwave.  Pour beans on toast."
+}

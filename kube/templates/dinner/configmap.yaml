@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  recipe.json: |
+    {
+      "name": "Cheese on Toast",
+      "ingredients": [
+        { "item": "Cheese", "quantity": "110g, grated" },
+        { "item": "Bread", "quantity": "2 slices" },
+        { "item": "Worcestershire sauce", "quantity": "a dash" }
+      ],
+      "method": "Grill one side of the bread.  Turn over, add cheese, and a few dashes of worcestershire sauce, grill till cheese has melted."
+    }
+kind: ConfigMap
+metadata:
+  name: dinner-cm

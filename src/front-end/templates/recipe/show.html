@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{recipe["name"]}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="recipe">
+<h1>Ingredients</h1>
+<ul>
+{% for ingredient in recipe["ingredients"] %}
+<li>{{ingredient["item"]}} - {{ingredient["quantity"]}}</li>
+{% endfor %}
+</ul>
+</div>
+<div>
+{{recipe["method"]|replace('\n', '<br>'|safe)}}
+</div>
+
+{% endblock %}
