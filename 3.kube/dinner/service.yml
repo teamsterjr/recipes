@@ -10,4 +10,4 @@ spec:
   ports:
   - port: 5000
     name: http
-  type: ClusterIP
+  type: NodePort
